@@ -15,11 +15,28 @@ from botocore.credentials import Credentials
 from botocore.awsrequest import AWSRequest
 from botocore.auth import SigV4Auth
 
-ACCESS_KEY    = os.environ['ACCESS_KEY']
-ACCESS_SECRET = os.environ['ACCESS_SECRET']
-REGION        = os.environ['REGION']
-URL           = os.environ['URL']
-BUCKET        = os.environ['BUCKET']
+# ACCESS_KEY    = os.environ['ACCESS_KEY']
+# ACCESS_SECRET = os.environ['ACCESS_SECRET']
+# REGION        = os.environ['REGION']
+# URL           = os.environ['URL']
+# BUCKET        = os.environ['BUCKET']
+
+config = {}
+
+with open('config.sh') as f:
+    lines = f.readlines()
+    for line in lines:
+        pair = line.strip().split('=')
+        if len(pair) == 2:
+            config[pair[0]] = pair[1]
+
+ACCESS_KEY    = config['ACCESS_KEY']
+ACCESS_SECRET = config['ACCESS_SECRET']
+REGION        = config['REGION']
+URL           = config['URL']
+URL2          = config['URL2']
+BUCKET        = config['BUCKET']
+
 
 @contextmanager
 def timer(name):

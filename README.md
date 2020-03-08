@@ -41,6 +41,15 @@ Change timeout to 29sec.
 Set the role to use cloudwatch and S3.
 
 
-## Demo
+## Configure Demoscript
+exit config.sh
+- ACCESS_KEY: IAM info
+- ACCESS_SECRET: IAM info
+- REGION: Region for labmda
+- URL: URL for lambda2. https://<xxxx>.execute-api.<xxxxx>.amazonaws.com/dev/image
+- URL2: URL for lambda2. https://<xxxx>.execute-api.<xxxxx>.amazonaws.com/dev/images
+- BUCKET: Bucket where the images are in.
 
+## Demo
+- demo.ipynb
 See 
