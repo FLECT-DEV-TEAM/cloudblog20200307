@@ -1,2 +1,8 @@
 input/*
-#config.sh
+config.sh
+.ipynb_checkpoints
+sls/.requirements.zip
+sls/.serverless
+sls/node_modules
+sls/package-lock.json
+sls/package.json

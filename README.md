@@ -7,6 +7,9 @@
 $ npm install -g serverless
 $ serverless config credentials --provider aws --key “IAMユーザのアクセスキーID”  --secret “IAMユーザのシークレットアクセスキー”
 ```
+
+besides this, you need to install docker to use serverless framework, if you have not installed docker.
+
 ### plugins
 ```
 $ cd sls
