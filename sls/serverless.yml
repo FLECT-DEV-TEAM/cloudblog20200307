@@ -1,0 +1,54 @@
+service: blog-parallel-lambda
+
+#############
+## Provider
+############
+provider:
+  name: aws
+  runtime: python3.6
+  region: us-west-2
+  logRetentionInDays: 30
+  deploymentBucket:
+    name: blog20200306
+#############
+## Plugin
+############
+plugins:
+  - serverless-python-requirements
+  - serverless-prune-plugin
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    zip: true
+    slim: true
+    strip: false
+    slimPatterns:
+      - "**/markdown"
+  prune:
+    automatic: true
+    number: 3
+
+
+#-----------------------------#
+#  Lambda Functions          #
+#-----------------------------#
+functions:
+  ResizeImage:
+    handler: resize_image.resize
+    provisionedConcurrency: 300
+    reservedConcurrency: 300
+    events:
+      - http:
+          path: image
+          method: post
+  ResizeImages:
+    handler: resize_images.resize
+    provisionedConcurrency: 300
+    reservedConcurrency: 300
+    timeout: 60
+    memorySize: 1024
+    events:
+      - http:
+          path: images
+          method: post
+
