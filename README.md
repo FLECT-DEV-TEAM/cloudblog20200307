@@ -42,14 +42,15 @@ Set the role to use cloudwatch and S3.
 
 
 ## Configure Demoscript
-exit config.sh
+edit config.sh
 - ACCESS_KEY: IAM info
 - ACCESS_SECRET: IAM info
 - REGION: Region for labmda
-- URL: URL for lambda2. https://<xxxx>.execute-api.<xxxxx>.amazonaws.com/dev/image
-- URL2: URL for lambda2. https://<xxxx>.execute-api.<xxxxx>.amazonaws.com/dev/images
+- URL: URL for lambda. https://xxxx.execute-api.xxxxx.amazonaws.com/dev/image
+- URL2: URL for lambda2. https://xxxx.execute-api.xxxxx.amazonaws.com/dev/images
 - BUCKET: Bucket where the images are in.
 
 ## Demo
+See
 - demo.ipynb
-See 
+
